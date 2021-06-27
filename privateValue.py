@@ -1,4 +1,10 @@
 class privateValue:
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, "_instance"):
+            print("__new__ is called\n")
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
     def setSite(self, site):
         self.__site = site;
 
@@ -13,6 +19,7 @@ class privateValue:
 
     def setConcert(self,concert):
         self.__concert = concert;
+
     def getSite(self):
         return self.__site;
 

@@ -1,27 +1,27 @@
 class site:
     def __init__(self):
-        self.masterValue = 0;
-        self.m_url = "";
-        self.m_login_btn = "";
-        self.m_id_text = "";
-        self.m_pw_text = "";
-        self.m_birth_text ="";
-        self.m_birth_btn = "";
+        self.masterValue = 0
+        self.m_url = ""
+        self.m_login_btn = ""
+        self.m_id_text = ""
+        self.m_pw_text = ""
+        self.m_birth_text =""
+        self.m_birth_btn = ""
 
     def getMasterValue(self):
-        return self.masterValue;
+        return self.masterValue
     def getUrl(self):
-        return self.m_url;
+        return self.m_url
     def getLoginBtn(self):
-        return self.m_login_btn;
+        return self.m_login_btn
     def getIdText(self):
-        return self.m_id_text;
+        return self.m_id_text
     def getPwText(self):
-        return self.m_pw_text;
+        return self.m_pw_text
     def getBirthText(self):
-        return self.m_birth_text;
+        return self.m_birth_text
     def getBirthBtn(self):
-        return self.m_birth_btn;
+        return self.m_birth_btn
 
     def setSiteValue(self, num):
         if(num == '1'):
@@ -32,6 +32,7 @@ class site:
             self.m_pw_text = "pw";
             self.m_birth_text = "birthday";
             self.m_birth_btn = "confirmBtn";
+
             print(self.m_url);
 
         if (num == '2'):

@@ -1,7 +1,6 @@
 import time
 from lib2to3.pgen2 import driver
 
-import self as self
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -33,23 +32,23 @@ def loginfun(dr, my_id, my_pw, my_birth):
     sec_login_elem.click()
 
 def inputPrivateData():
-    m_privateData = privateValue.privateValue();
-    print("===========================================");
+    m_privateData = privateValue.privateValue()
+    print("===========================================")
     print("Input Your ID : ")
-    m_privateData.setId("sunghyun020@naver.com");
-    m_privateData.setPw("ae8824ae@");
-    m_privateData.setBirthday("930209");
-    m_privateData.setConcert("");
-    return m_privateData;
+    m_privateData.setId("sunghyun020@naver.com")
+    m_privateData.setPw("ae8824ae@")
+    m_privateData.setBirthday("930209")
+    return m_privateData
 
 if __name__ == '__main__':
-    m_login = login.login();
-    m_site = siteValue.site();
-    m_privateData = inputPrivateData();
+    m_login = login.login()
+    m_site = siteValue.site()
+    m_privateData = inputPrivateData()
 
-    m_login.choiceSite(m_site);
-    m_login.joinSite(m_site);
-    m_login.loginSite(m_site, m_privateData);
+    m_login.choiceSite()
+    m_login.joinSite()
+    m_login.loginSite()
+    m_login.selectReserveBtn()
 
 
 
