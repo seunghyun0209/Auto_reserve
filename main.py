@@ -1,15 +1,19 @@
 import time
 from lib2to3.pgen2 import driver
 
+import self as self
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from urllib3.util import wait
+import login
+import siteValue
+import privateValue
 
 
-def login(dr, my_id, my_pw, my_birth):
+def loginfun(dr, my_id, my_pw, my_birth):
     dr.switch_to_window(dr.window_handles[1])
     print(dr.window_handles)
     print(my_id)
@@ -28,16 +32,25 @@ def login(dr, my_id, my_pw, my_birth):
     sec_login_elem = dr.find_element_by_id("confirmBtn")
     sec_login_elem.click()
 
+def inputPrivateData():
+    m_privateData = privateValue.privateValue();
+    print("===========================================");
+    print("Input Your ID : ")
+    m_privateData.setId("sunghyun020@naver.com");
+    m_privateData.setPw("ae8824ae@");
+    m_privateData.setBirthday("930209");
+    m_privateData.setConcert("");
+    return m_privateData;
+
 if __name__ == '__main__':
-    my_id = "sunghyun020@naver.com"
-    my_pw = "ae8824ae@"
-    my_birth = "930209"
-    # Webdriver 실행
-    dr = webdriver.Chrome('./chromedriver.exe')
-    dr.get('http://www.ticketlink.co.kr/')
-    login_elem = dr.find_element_by_id("loginBtn")
-    login_elem.click()
-    login(dr, my_id, my_pw,my_birth)
+    m_login = login.login();
+    m_site = siteValue.site();
+    m_privateData = inputPrivateData();
+
+    m_login.choiceSite(m_site);
+    m_login.joinSite(m_site);
+    m_login.loginSite(m_site, m_privateData);
+
 
 
 
